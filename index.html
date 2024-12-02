@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biodata Akun</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: linear-gradient(120deg, #f58529, #dd2a7b, #8134af, #515bd4);
+            background-size: 400% 400%;
+            animation: gradientBG 8s infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            margin: 20px 0;
+            font-size: 2em;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #555;
+        }
+
+        th {
+            background: rgba(0, 0, 0, 0.8);
+            color: #f58529;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s ease;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px auto;
+            font-size: 1em;
+            background: #f58529;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            animation: bounce 2s infinite;
+        }
+
+        button:hover {
+            background: #dd2a7b;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Password Screen */
+        #password-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        #password-screen input {
+            padding: 10px;
+            font-size: 1.2em;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+            text-align: center;
+        }
+
+        .password-feedback {
+            margin-top: 10px;
+            font-size: 1em;
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .password-feedback.correct {
+            color: #4caf50;
+            transform: translateY(-10px);
+            opacity: 1;
+        }
+
+        .password-feedback.incorrect {
+            color: #f44336;
+            transform: translateY(-10px);
+            opacity: 1;
+        }
+
+        /* Lightning Effect */
+        .lightning {
+            position: absolute;
+            width: 10px;
+            height: 40px;
+            background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0));
+            transform: rotate(45deg);
+            animation: lightningAnimation 0.5s ease-out forwards;
+            filter: blur(2px);
+        }
+
+        @keyframes lightningAnimation {
+            to {
+                opacity: 0;
+                transform: scale(1.5) rotate(45deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Password Screen -->
+    <div id="password-screen">
+        <h1>Masukkan Sandi</h1>
+        <input type="password" id="password-input" placeholder="Masukkan sandi...">
+        <button onclick="checkPassword()">Buka</button>
+        <div id="password-feedback" class="password-feedback"></div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <h1>Biodata Syafaat & Akun</h1>
+    </header>
+
+    <!-- Main Content -->
+    <table>
+        <thead>
+            <tr>
+                <th>Informasi</th>
+                <th>Detail</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>Nama</td><td>Syafaat Nuryadi</td></tr>
+            <tr><td>Nomor HP</td><td>+62 821-8076-7200</td></tr>
+            <tr><td>Akun Google</td><td>syafaatnuryadi27052006@gmail.com</td></tr>
+            <tr><td>Sandi Akun Google</td><td>SYAFAAT321</td></tr>
+            <tr><td>Akun Instagram</td><td>@Syafaat_Paiker</td></tr>
+            <tr><td>Sandi Akun Instagram</td><td>SYAFAAT321</td></tr>
+            <tr><td>Akun Facebook</td><td>082180767200</td></tr>
+            <tr><td>Sandi Akun Facebook</td><td>SYAFAAT321</td></tr>
+            <tr><td>Microsoft</td><td>082180767200</td></tr>
+            <tr><td>Sandi Akun Microsoft</td><td>SYAFAAT321</td></tr>
+            <tr><td>Email</td><td>syafaatnuryadi27052006@gmail.com</td></tr>
+            <tr><td>Kontak Penting 1</td><td>(selmi)+62 853-6614-9367</td></tr>
+            <tr><td>Kontak Penting 2</td><td>(hikmah)+62 838-7231-3681</td></tr>
+        </tbody>
+    </table>
+    <button onclick="openGallery()">Buka Galeri</button>
+
+    <!-- JavaScript -->
+    <script>
+        function checkPassword() {
+            const input = document.getElementById("password-input").value;
+            const feedback = document.getElementById("password-feedback");
+
+            if (input === "SYAFAAT2705") {
+                feedback.textContent = "Sandi benar. Selamat datang!";
+                feedback.classList.add("correct");
+                feedback.classList.remove("incorrect");
+                setTimeout(() => {
+                    document.getElementById("password-screen").style.display = "none";
+                    localStorage.setItem("authenticated", "true");
+                }, 1000);
+            } else {
+                feedback.textContent = "Sandi salah. Coba lagi!";
+                feedback.classList.add("incorrect");
+                feedback.classList.remove("correct");
+            }
+        }
+
+        document.body.addEventListener("click", function(e) {
+            const lightning = document.createElement("div");
+            lightning.classList.add("lightning");
+            lightning.style.top = `${e.clientY}px`;
+            lightning.style.left = `${e.clientX}px`;
+            document.body.appendChild(lightning);
+            setTimeout(() => lightning.remove(), 500);
+        });
+
+        function openGallery() {
+            window.open("https://drive.google.com/drive/folders/15emInnBLaKEkVPoaFYLXBwNAT_p8DK9c", "_blank");
+        }
+
+        window.onbeforeunload = () => {
+            localStorage.removeItem("authenticated");
+        };
+
+        if (localStorage.getItem("authenticated") !== "true") {
+            document.getElementById("password-screen").style.display = "flex";
+        } else {
+            document.getElementById("password-screen").style.display = "none";
+        }
+    </script>
+</body>
+</html>
